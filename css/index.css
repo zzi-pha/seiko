@@ -1,0 +1,754 @@
+@charset "UTF-8";
+@font-face {
+  font-family: "Aleo-Black";
+  src: url(../font/aleo/Aleo-Black.woff) format("woff");
+}
+@font-face {
+  font-family: "Aleo-BlackItalic";
+  src: url(../font/aleo/Aleo-BlackItalic.woff) format("woff");
+}
+@font-face {
+  font-family: "Aleo-Bold";
+  src: url(../font/aleo/Aleo-Bold.woff) format("woff");
+}
+@font-face {
+  font-family: "Aleo-BoldItalic";
+  src: url(../font/aleo/Aleo-BoldItalic.woff) format("woff");
+}
+@font-face {
+  font-family: "Aleo-ExtraBold";
+  src: url(../font/aleo/Aleo-ExtraBold.woff) format("woff");
+}
+@font-face {
+  font-family: "Aleo-ExtraLight";
+  src: url(../font/aleo/Aleo-ExtraLight.woff) format("woff");
+}
+@font-face {
+  font-family: "Aleo-ExtraLightItalic";
+  src: url(../font/aleo/Aleo-ExtraLightItalic.woff) format("woff");
+}
+@font-face {
+  font-family: "Aleo-Medium";
+  src: url(../font/aleo/Aleo-Medium.woff) format("woff");
+}
+@font-face {
+  font-family: "Aleo-Regular";
+  src: url(../font/aleo/Aleo-Regular.woff) format("woff");
+}
+@font-face {
+  font-family: "Aleo-SemiBold";
+  src: url(../font/aleo/Aleo-SemiBold_1.woff) format("woff");
+}
+* {
+  margin: 0;
+  padding: 0;
+
+}
+html,
+body{
+  width: 100%; height: 100%; overflow-x: hidden;
+  overflow-y: hidden;
+  box-sizing: border-box;
+}
+
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+img {
+  vertical-align: top;
+  border: 0;
+}
+.clearFix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+::selection {
+  background-color: #000000;
+  color: #fff;
+}
+.hidden {
+  display: none;
+}
+
+/* ----------------------------------------------------------------------------header */
+
+#header {
+  /* box-sizing: border-box;
+  border: 1px solid salmon; */
+  background-color: #000;
+  width: 100%;
+  height: 8%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 100;
+  /* display: none; */
+}
+#header .gnb {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+#header .gnb > li {
+  cursor: pointer;
+}
+#header .gnb > li:nth-child(1) {
+  position: absolute;
+  left: 5%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+#header .gnb > li:nth-child(1) > #menu {
+  width: 50px; height: 50px;
+}
+#header .gnb > li:nth-child(2) {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+#header .gnb > li:nth-child(2) > a > img {
+  width: 120%;
+}
+#header .gnb > li:nth-child(3) {
+  position: absolute;
+  right: 10%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+#header .gnb > li:nth-child(3) > a > #person {
+  filter: invert(87%) sepia(89%) saturate(5%) hue-rotate(184deg)
+    brightness(108%) contrast(97%);
+
+}
+#header .gnb > li:nth-child(4) {
+  position: absolute;
+  right: 5%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+#header .gnb > li:nth-child(4) > #search {
+  filter: invert(87%) sepia(89%) saturate(5%) hue-rotate(184deg)
+    brightness(108%) contrast(97%);
+}
+
+/* -----------------------------------------------------------blackbg */
+#black_bg {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000000c5;
+  z-index: 100;
+  display: none;
+}
+#black_bg .hamberger {
+  width: 20%;
+  height: 100%;
+  background-color: #fff;
+  border-radius: 0 50px 50px 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 900;
+  box-shadow: 0 0 5px #000000;
+}
+#black_bg .hamberger .white_bg {
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  border-radius: 0 50px 50px 0;
+  position: relative;
+}
+#black_bg .hamberger .white_bg > h1 {
+  position: absolute;
+  left: 50%;
+  top: 5%;
+  transform: translateX(-50%);
+}
+#black_bg .hamberger .white_bg > h1 > a > img {
+  width: 100%;
+}
+#black_bg .hamberger .white_bg #nav {
+  width: 100%;
+  position: absolute;
+  left: 50%;
+  top: 25%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+#black_bg .hamberger .white_bg #nav > li {
+  width: 100%;
+  height: 10%;
+  /* box-sizing: border-box; */
+  /* border: 1px solid salmon; */
+  font-weight: bold;
+  font-size: 2.13vw;
+  margin-bottom: 10%;
+  font-family: "Aleo-Medium";
+}
+#black_bg .hamberger .white_bg #nnaavv{
+  display: none;
+}
+
+#black_bg .hamberger .white_bg #nav > li.on > a {
+  border-bottom: 2px solid #000000;
+}
+
+#black_bg .hamberger .white_bg #nav > li:nth-child(1) > #sub {
+  font-size: 1.3vw;
+  display: none;
+}
+#black_bg .hamberger .white_bg #nav > li:nth-child(1)>a{
+  cursor: pointer;
+}
+#black_bg .hamberger .white_bg #nav > li:nth-child(1) > #sub > li {
+  margin-top: 5%;
+  cursor: pointer;
+}
+#black_bg .hamberger .white_bg #nav>li:first-child #sub>li>a{
+  color: #aaaaaa;
+}
+
+
+/* ---------------------------------------------블랙배경 끄기 */
+#black_bg #turnOff {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  right: 10%;
+  top: 50%;
+  z-index: 999;
+  background-image: url(../img/x-100.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  transform: translateY(-50%);
+  /* display: none; */
+}
+#black_bg #turnOff:hover {
+  background-image: url(../img/x-rotate-100.png);
+}
+/* ------------------------------------------uls */
+
+#black_bg #uls {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 150;
+}
+
+/* -----------------------------------------------------presage */
+
+#black_bg #uls #presage {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+
+  /* display: none; */
+}
+#black_bg #uls #presage > li {
+  width: 20%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 0 50px 50px 0;
+  /* transition: left 1s ease-out; */
+  background-repeat: no-repeat;
+  cursor: pointer;
+  filter: grayscale(1);
+  transition-property: filter;
+  transition-duration: 0.5s;
+}
+#black_bg #uls #presage > li:hover {
+  filter: grayscale(0);
+}
+
+#black_bg #uls #presage > li > a {
+  position: absolute;
+  top: 5%;
+  right: 2%;
+  font-size: 1.6vw;
+  font-weight: bold;
+  color: rgb(255, 255, 255);
+  text-shadow: 0px 0px 2px rgb(0, 0, 0);
+  font-family: "Aleo-Medium";
+  transition-property: color;
+  transition-duration: 0.5s;
+}
+
+#black_bg #uls #presage > li:nth-child(1):hover > a {
+  color: #e3bd3b;
+}
+#black_bg #uls #presage > li:nth-child(2):hover > a {
+  color: #4089c2;
+}
+#black_bg #uls #presage > li:nth-child(3):hover > a {
+  color: #999f83;
+}
+#black_bg #uls #presage > li:nth-child(4):hover > a {
+  color: #7287ca;
+}
+#black_bg #uls #presage > li:nth-child(5):hover > a {
+  color: #b1bd97;
+}
+#black_bg #uls #presage > li:nth-child(1) {
+  /* left: 15%; */
+  z-index: 160;
+  background-image: url(../img/watchs/presage/cocktailtime/d89155d9887e255c113f61ce4b36efdf.jpg);
+  background-size: 200% 120%;
+  background-position: 0% 0%;
+}
+
+#black_bg #uls #presage > li:nth-child(2) {
+  /* left: 27%; */
+  background-color: firebrick;
+  z-index: 159;
+  background-image: url(../img/watchs/presage/craftsmanship/picture11.png);
+  background-size: 200% 140%;
+  background-position: 0% 0%;
+  /* animation: slide2 0.5s forwards; */
+}
+#black_bg #uls #presage > li:nth-child(3) {
+  /* left: 38%; */
+  background-color: bisque;
+  background-image: url(../img/watchs/presage/japanesegarden/27b46e374206e7c0950009e451c49c52.jpg);
+  background-size: 200% 100%;
+  background-position: 14% 0%;
+  z-index: 158;
+  /* animation: slide3 0.5s forwards; */
+}
+/* #black_bg #uls #presage>li:nth-child(3)>a{
+  color: white;
+} */
+#black_bg #uls #presage > li:nth-child(4) {
+  z-index: 157;
+  background-image: url(../img/watchs/presage/sharpedged/7b8807475005c6023e82c52d045b3da7.jpg),
+    linear-gradient(to left, #0c1a25, #dd4e46);
+  background-size: 100% 80%, 120% 100%;
+  background-position: 0%;
+}
+#black_bg #uls #presage > li:nth-child(5) {
+  background-color: goldenrod;
+  background-image: url(../img/watchs/presage/style60/78c41d3f1b5080cabe64b876ebb56f5a.jpg);
+  background-size: 120% 100%;
+  background-position: 0% 0%;
+  z-index: 156;
+}
+
+/* --------------------------------------------------------------porspex */
+
+#black_bg #uls #porspex {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  /* display: none; */
+}
+#black_bg #uls #porspex > li {
+  width: 20%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 0 50px 50px 0;
+  z-index: 15;
+  cursor: pointer;
+  background-repeat: no-repeat;
+  filter: grayscale(1);
+  transition-property: filter;
+  transition-duration: 0.5s;
+  /* transition: left 1s ease-out; */
+}
+#black_bg #uls #porspex > li:hover {
+  filter: grayscale(0);
+}
+#black_bg #uls #porspex > li > a {
+  position: absolute;
+  top: 5%;
+  right: 5%;
+  font-size: 1.6vw;
+  font-weight: bold;
+  color: white;
+  font-family: "Aleo-Medium";
+  transition-property: color;
+  transition-duration: 0.5s;
+}
+#black_bg #uls #porspex > li:hover > a {
+  color: black;
+}
+
+#black_bg #uls #porspex > li:nth-child(1) {
+  background-color: greenyellow;
+  background-image: url(../img/watchs/prospex/sea/48ac4008f3811732b5ed563b9c42e8ed.jpg);
+  background-size: 150% 100%;
+  background-position: 60% 0%;
+  z-index: 14;
+}
+#black_bg #uls #porspex > li:nth-child(2) {
+  background-color: hotpink;
+  background-image: url(../img/watchs/prospex/land/526d66a02407cbb014e9217d21e6cdae.jpg);
+  background-size: 150% 100%;
+  background-position: 60% 0%;
+  z-index: 13;
+}
+
+/* --------------------------------------------------------------------5sport */
+
+#black_bg #uls #sport {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+
+  /* display: none; */
+}
+#black_bg #uls #sport > li {
+  width: 20%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 0 50px 50px 0;
+  cursor: pointer;
+  background-repeat: no-repeat;
+  /* transition: left 1s ease-out; */
+  filter: grayscale(1);
+  transition-property: filter;
+  transition-duration: 0.5s;
+}
+#black_bg #uls #sport > li:hover {
+  filter: grayscale(0);
+}
+
+#black_bg #uls #sport > li > a {
+  position: absolute;
+  top: 5%;
+  right: 5%;
+  font-size: 1.6vw;
+  font-weight: bold;
+  color: #fff;
+  text-shadow: -4px 0px rgb(0, 0, 0), 0px 4px rgb(0, 0, 0), 4px 0px rgb(0, 0, 0),
+    0px -4px rgb(0, 0, 0);
+  font-family: "Aleo-Medium";
+  transition-property: color;
+  transition-duration: 0.5s;
+}
+#black_bg #uls #sport > li:hover > a {
+  color: #000000;
+  text-shadow: -4px 0px rgb(255, 255, 255), 0px 4px rgb(255, 255, 255),
+    4px 0px rgb(255, 255, 255), 0px -4px rgb(255, 255, 255);
+}
+#black_bg #uls #sport > li:nth-child(1) {
+  background-color: goldenrod;
+  background-image: url(../img/watchs/5sports/sport/dfba2b70645711fe003fc507d81fc99e.jpg);
+  background-size: 150% 100%;
+  background-position: 60% 0%;
+  z-index: 40;
+}
+#black_bg #uls #sport > li:nth-child(2) {
+  background-color: royalblue;
+  background-image: url(../img/watchs/5sports/suit/1d9b7ac6b100b39de1d29b3ff207e82c.jpg);
+  background-size: 150% 110%;
+  background-position: -10% 0%;
+  z-index: 39;
+}
+#black_bg #uls #sport > li:nth-child(3) {
+  background-color: blanchedalmond;
+  background-image: url(../img/watchs/5sports/special/35fc7f1809f55c767a2e6785466f31f5.jpg);
+  background-size: 150% 100%;
+  background-position: 0% 0%;
+  z-index: 38;
+}
+#black_bg #uls #sport > li:nth-child(4) {
+  background-color: violet;
+  background-image: url(../img/watchs/5sports/street/3facd088849e813f9e75a38035bebea7.jpg);
+  background-size: 150% 100%;
+  background-position: -25% 0%;
+  z-index: 37;
+}
+#black_bg #uls #sport > li:nth-child(5) {
+  background-color: honeydew;
+  background-image: url(../img/watchs/5sports/sense/dfc3e44757cbe62a593f5cf933ac7d47.jpg);
+  background-size: 150% 100%;
+  background-position: -25% 0%;
+  z-index: 36;
+}
+#black_bg #uls #sport > li:nth-child(6) {
+  background-image: url(../img/watchs/5sports/field/c280a8ed68435beae79b73162899ff9e.jpg);
+  background-size: 150% 100%;
+  background-position: 0% 0%;
+  background-color: navy;
+  z-index: 35;
+}
+/* --------------------------------------------------------------------------------section */
+#section {
+  width: 100%;
+  height: 100%;
+  overflow-x: scroll; 
+  white-space: nowrap;
+  overflow-y: hidden;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #000;
+}
+#section::-webkit-scrollbar{
+  width: 1vw;
+}
+#section::-webkit-scrollbar-thumb{
+  width: 1vw;
+  background-color: rgba(255,255,255,1);
+  border-radius: 10px; 
+  border: 7px solid rgb(0, 0, 0); 
+  /* 스크롤을 적용할 영역 색깔과 border 색상을 똑같이 맞춘다 */
+}
+#section::-webkit-scrollbar-track{
+	background-color: rgba(0,0,0,0); /* 스크롤바 뒷 배경을 투명 처리한다 */
+}
+
+
+
+#section .box {
+  width: 100vw; height: 100vh;
+  display: inline-block;
+  vertical-align: top;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+#section .banner{
+  /* width: 1920px;
+  height: 100%; */
+  /* float: left; */
+  background-color: transparent;
+  position: relative;
+  /* width: 100vw;height: 100vh; */
+}
+#section .banner #bv {
+  position: absolute;
+  left: 0;
+  bottom: -8%;
+  width: auto;
+  min-width: 100%;
+  height: auto;
+  min-height: 100%;
+}
+
+#section div a{
+  position: absolute; 
+  top: 0;
+  left: 0;
+  width: 100%; 
+  height: 100%;
+}
+
+
+#section .main{
+  background-image: url(../img/watchs/seikopremier/premier_main_pc.jpg);
+  background-repeat: no-repeat;
+  background-position: 0% 10%;
+  background-size: 100%;
+  position: relative;
+}
+
+#section .main2{
+  background-image: url(../img/watchs/kingseiko/brand-pc_top_kingseiko.jpg);
+  background-repeat: no-repeat;
+  background-position: 0% 0%;
+  background-size: 100%;
+  position: relative;
+}
+
+#section .main3{
+  background-image: url(../img/watchs/presage/brand-pc_top_presage.jpg);
+  background-repeat: no-repeat;
+  background-position:0% 0%;
+  background-size: 100%;
+  position: relative;
+}
+
+#section .main4{
+  background-image: url(../img/watchs/astron/brand-pc_top_astron.jpg);
+  background-repeat: no-repeat;
+  background-position: 0% 0%;
+  background-size: 100%;
+  position: relative;
+}
+#section .main5{
+  background-image: url(../img/watchs/prospex/PSX_1920_1080.jpg);
+  background-repeat: no-repeat;
+  background-position: 0%  0%;
+  background-size: 100%;
+  position: relative;
+}
+#section .main6{
+  background-image: url(../img/watchs/5sports/brand-pc_top_5sports.jpg);
+  background-repeat: no-repeat;
+  background-position: 0% 0%;
+  background-size: 100%;
+  position: relative;
+}
+
+/* ----------------------------------------------------------------------미디어쿼리 */
+
+@media (min-width:769px) and (max-width:1900px){
+#header .gnb > li:nth-child(1) > #menu{
+  width: 35px; height: 35px;
+  }
+#section .banner{
+  display: none;
+}
+#section .box{
+  background-position: 0% 0%;
+}
+#black_bg .hamberger .white_bg #nav>li:first-child #sub>li>a{
+  color: #aaaaaa;
+}
+
+}
+
+
+@media (max-width:768px){
+
+  html,
+  body{
+    overflow-x: hidden;
+    box-sizing: border-box;
+  }
+  #header{
+    position: fixed;
+    left: 0; top: 0;
+  }
+  #header .gnb > li:nth-child(1) > #menu{
+    width: 25px; height: 25px;
+    }
+  #header .gnb > li:nth-child(3) {
+    position: absolute;
+    right: 10%;
+    top: 50%;
+    transform: translateY(-50%);
+    display: none;
+  }
+  #black_bg {
+    position: fixed;
+    left: 0;
+    top: 10%;
+    width: 100%;
+    height: 100%;
+    background-color: #000000c5;
+    z-index: 100;
+    display: none;
+  }
+  #black_bg .hamberger {
+    width: 100%;
+    height: 40%;
+    background-color: #fff;
+    border-radius: 0 0 50px 50px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 900;
+    box-shadow: 0 0 5px #000000;
+  }
+  #black_bg .hamberger .white_bg {
+    width: 100%;
+    height: 40%;
+    background-color: #fff;
+    border-radius: 0 0px 50px 50px;
+    position: relative;
+  }
+  #black_bg .hamberger .white_bg > h1 {
+    position: absolute;
+    left: 50%;
+    top: 5%;
+    transform: translateX(-50%);
+    display: none;
+  }
+  #black_bg .hamberger .white_bg #nnaavv {
+    width: 100%;
+    height: auto;
+    position: absolute;
+    left: 50%;
+    top: 30%;
+    transform: translateX(-50%);
+    text-align: center;
+    display: block;
+    /* border: 1px solid salmon; */
+  }
+  #black_bg .hamberger .white_bg #nnaavv>li{
+    font-weight: bold;
+    font-size: 1.5em;
+    margin-bottom: 50px;
+    font-family: "Aleo-Medium";
+  }
+  #black_bg #turnOff {
+
+    display: none;
+  }
+  #black_bg #uls{
+    display: none;
+  }
+
+
+  #black_bg .hamberger .white_bg #nav{
+    display: none;
+  }
+    
+  #black_bg .hamberger .white_bg #nav #sub{
+    display: none;
+  }
+ 
+  #section{
+  overflow-x: hidden;
+  overflow-y: auto;
+  white-space: normal;
+  }
+  #section .banner{
+    width: 100%;
+    height: auto;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    display: block;
+    overflow: hidden;
+  }
+  #section .banner #bv {
+    
+    width: 100%;
+    height: 56.25%;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    overflow: hidden;
+  }
+  
+  #section .box{
+    width: 100%;
+    height: 56.25%;
+    overflow-x: hidden;
+    background-size: cover;
+    background-position: 25% 0%;
+  }
+  #section div a{
+    position: absolute; 
+    top: 0;
+    left: 0;
+    width: 100%; 
+    height: 100%;
+  }
+}

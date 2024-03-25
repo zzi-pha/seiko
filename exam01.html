@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Slide Animation</title>
+  <style>
+  #slidingElement {
+  position: absolute;
+  left: -200px; /* 초기에는 화면 왼쪽 밖으로 숨겨둠 */
+  /* transition: left 0.5s ease-in-out; */
+}
+
+  .hidden {
+    display: none; /* 초기에는 숨겨진 상태 */
+  }
+  </style>
+
+</head>
+<body>
+
+  <a id="toggleButton">Toggle Slide</a>
+  <div id="slidingElement" class="hidden">슬라이드 되는 요소</div>
+
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <script>
+    $(document).ready(function () {
+    var slidingElement = $('#slidingElement');
+
+  $('#toggleButton').on('click', function () {
+    // 버튼을 클릭할 때 슬라이드 토글
+    slidingElement.toggleClass('hidden');
+    slidingElement.css('left', slidingElement.hasClass('hidden') ? '-200px' : '0');
+  });
+
+  // 문서의 다른 부분을 클릭할 때 슬라이드 숨김
+  $(document).on('click', function (event) {
+    if (!slidingElement.hasClass('hidden') && !$(event.target).closest('#slidingElement, #toggleButton').length) {
+      slidingElement.addClass('hidden');
+      slidingElement.css('left', '-200px');
+    }
+  });
+});
+
+//     document.addEventListener('DOMContentLoaded', function () {
+//     var slides = document.getElementById('presage');
+//     var slideButton = document.getElementById('slidebtn');
+
+//     if (slides && slideButton) {
+//         // 토글 버튼에 클릭 이벤트 리스너 추가
+//         slideButton.addEventListener('click', function () {
+//             // 슬라이드의 hidden 클래스 토글
+//             slides.classList.toggle('hidden');
+
+//             // hidden 클래스가 있는지 확인하여 각 슬라이드 항목에 다른 left 값을 설정
+//             var slideItems = slides.querySelectorAll('li');
+//             if (slides.classList.contains('hidden')) {
+//                 // 숨겨져 있는 경우
+//                 slideItems.forEach(function (item, index) {
+//                     item.style.left = '0';
+//                 });
+//             } else {
+//                 // 보이는 경우
+//                 slideItems.forEach(function (item, index) {
+//                     item.style.left =  (index * 10) + '%'; // 각각 다른 left 값 부여
+//                 });
+//             }
+//         });
+
+//         // 문서의 다른 부분을 클릭할 때 슬라이드 숨김
+//         document.addEventListener('click', function (event) {
+//             // 슬라이드가 숨겨져 있고, 이벤트 타겟이 슬라이드 또는 토글 버튼이 아닌 경우
+//             if (!slides.classList.contains('hidden') && !event.target.closest('#presage, #slidebtn')) {
+//                 // hidden 클래스 추가 및 각 슬라이드 항목에 다른 left 값을 설정
+//                 slides.classList.add('hidden');
+//                 var slideItems = slides.querySelectorAll('li');
+//                 slideItems.forEach(function (item, index) {
+//                     item.style.left = '0';
+//                 });
+//             }
+//         });
+//     } else {
+//         console.error('슬라이드 토글을 위한 요소를 찾을 수 없습니다.');
+//     }
+// });
+
+document.addEventListener('DOMContentLoaded', function () {
+    var slides = document.getElementById('presage');
+    var slideButton = document.getElementById('slidebtn');
+
+    if (slides && slideButton) {
+        // 토글 버튼에 클릭 이벤트 리스너 추가
+        slideButton.addEventListener('click', function () {
+            // 슬라이드의 hidden 클래스 토글
+            slides.classList.toggle('hidden');
+
+            // hidden 클래스가 있는지 확인하여 각 슬라이드 항목에 다른 left 값을 설정
+            var slideItems = slides.querySelectorAll('li');
+            if (slides.classList.contains('hidden')) {
+                // 숨겨져 있는 경우
+                slideItems.forEach(function (item, index) {
+                    item.style.left = '0';
+                });
+            } else {
+                // 보이는 경우
+                // 초기에는 모두 숨김으로 설정하고, 나중에 보이게 되면서 애니메이션을 적용
+                slideItems.forEach(function (item, index) {
+                    item.style.left = '0';
+                    item.style.transition = `left 0.5s ease-out ${index * 0.1}s`;
+                    item.offsetHeight; // reflow를 유발하여 각 항목의 초기 상태를 강제로 불러옴
+                    item.style.left = (index * 10) + '%'; // 각각 다른 left 값 부여
+                });
+            }
+        });
+
+        // 문서의 다른 부분을 클릭할 때 슬라이드 숨김
+        document.addEventListener('click', function (event) {
+            // 슬라이드가 숨겨져 있고, 이벤트 타겟이 슬라이드 또는 토글 버튼이 아닌 경우
+            if (!slides.classList.contains('hidden') && !event.target.closest('#presage, #slidebtn')) {
+                // hidden 클래스 추가 및 각 슬라이드 항목에 다른 left 값을 설정
+                slides.classList.add('hidden');
+                var slideItems = slides.querySelectorAll('li');
+                slideItems.forEach(function (item, index) {
+                    item.style.left = '0';
+                    item.style.transition = 'left 0.5s ease-out 0s'; // 초기화
+                });
+            }
+        });
+    } else {
+        console.error('슬라이드 토글을 위한 요소를 찾을 수 없습니다.');
+    }
+});
+
+// document.addEventListener('DOMContentLoaded', function () {
+//     var slides = document.getElementById('presage');
+//     var slideButton = document.getElementById('slidebtn');
+
+//     if (slides && slideButton) {
+//         // 토글 버튼에 클릭 이벤트 리스너 추가
+//         slideButton.addEventListener('click', function () {
+//             // 슬라이드의 hidden 클래스 토글
+//             slides.classList.toggle('hidden');
+
+//             // hidden 클래스가 있는지 확인하여 각 슬라이드 항목에 다른 left 값을 설정
+//             var slideItems = slides.querySelectorAll('li');
+//             if (slides.classList.contains('hidden')) {
+//                 // 숨겨져 있는 경우
+//                 slideItems.forEach(function (item, index) {
+//                     item.style.left = '0';
+//                     item.style.transition = 'left 0.5s ease-out 0s'; // 초기화
+//                 });
+//             } else {
+//                 // 보이는 경우
+//                 // 첫 번째 항목만 초기에 10% 이동하도록 설정
+
+
+//                 // let mov = eval('10%');
+//                 // for(let i=0; i < slideItems.length; i++){
+//                 //   slideItems[i].style.left = `${i} * ${mov} + 10% `;
+//                 // }
+
+//                 let mov = 10;
+//                 for (let i = 0; i < slideItems.length; i++) {
+//                 slideItems[i].style.left = `${i * mov + 10}%`;
+//               }
+
+//                 // slideItems[0].style.left = '10%';
+//                 // slideItems[1].style.left = '20%';
+//                 // slideItems[2].style.left = '30%';
+//                 // slideItems[3].style.left = '40%';
+//                 // slideItems[4].style.left = '50%';
+              
+//                 // slideItems.forEach(function (item, index) {
+//                 //     // 나머지 항목에 대해는 각각 10% 이동 후 10%씩 이동하는 효과 설정
+//                 //     if (index !== 0) {
+//                 //         // item.style.left = '10%';
+//                 //         // item.style.left =  (index * 10) + '%'; // 각각 다른 left 값 부여
+//                 //         item.style.transition = `left 0.5s ease-out ${index * 0.1}s`;
+//                 //     }
+//                 // });
+//             }
+//         });
+
+//         // 문서의 다른 부분을 클릭할 때 슬라이드 숨김
+//         document.addEventListener('click', function (event) {
+//             // 슬라이드가 숨겨져 있고, 이벤트 타겟이 슬라이드 또는 토글 버튼이 아닌 경우
+//             if (!slides.classList.contains('hidden') && !event.target.closest('#presage, #slidebtn')) {
+//                 // hidden 클래스 추가 및 각 슬라이드 항목에 다른 left 값을 설정
+//                 slides.classList.add('hidden');
+//                 var slideItems = slides.querySelectorAll('li');
+//                 slideItems.forEach(function (item, index) {
+//                     item.style.left = '0';
+//                     item.style.transition = 'left 0.5s ease-out 0s'; // 초기화
+//                 });
+//             }
+//         });
+//     } else {
+//         console.error('슬라이드 토글을 위한 요소를 찾을 수 없습니다.');
+//     }
+// });
+
+document.addEventListener('DOMContentLoaded', function () {
+    var slides = document.getElementById('presage');
+    var slideButton = document.getElementById('slidebtn');
+
+    if (slides && slideButton) {
+        // 토글 버튼에 클릭 이벤트 리스너 추가
+        slideButton.addEventListener('click', function () {
+            // 슬라이드의 hidden 클래스 토글
+            slides.classList.toggle('hidden');
+
+            // hidden 클래스가 있는지 확인하여 각 슬라이드 항목에 다른 left 값을 설정
+            var slideItems = slides.querySelectorAll('li');
+            if (slides.classList.contains('hidden')) {
+                // 숨겨져 있는 경우
+                slideItems.forEach(function (item, index) {
+                    item.style.left = '0';
+                    item.style.transition = 'left 1s ease-out 0s'; // 초기화
+                });
+            } else {
+                // 보이는 경우
+                // 첫 번째 항목만 초기에 10% 이동하도록 설정
+
+                let mov = 10;
+                for (let i = 0; i < slideItems.length; i++) {
+                    slideItems[i].style.left = `${i * mov + 10}%`;
+                    slideItems[i].style.transition = `left 1s ease-out ${i * 0.1}s`; // 트랜지션 효과 추가
+                }
+                setTimeout(function () {
+            for (let i = 0; i < slideItems.length; i++) {
+                slideItems[i].style.transition = `left 1s ease-out ${i * 0.1}s`; // 트랜지션 효과 추가
+            }
+        }, 0);
+            }
+        });
+
+        // 문서의 다른 부분을 클릭할 때 슬라이드 숨김
+        document.addEventListener('click', function (event) {
+            // 슬라이드가 숨겨져 있고, 이벤트 타겟이 슬라이드 또는 토글 버튼이 아닌 경우
+            if (!slides.classList.contains('hidden') && !event.target.closest('#presage, #slidebtn')) {
+                // hidden 클래스 추가 및 각 슬라이드 항목에 다른 left 값을 설정
+                slides.classList.add('hidden');
+                slideItems.forEach(function (item, index) {
+                    item.style.left = '0';
+                    item.style.transition = 'left 1s ease-out 0s'; // 초기화
+                });
+            }
+        });
+    } else {
+        console.error('슬라이드 토글을 위한 요소를 찾을 수 없습니다.');
+    }
+});
+  </script>
+</body>
+</html>

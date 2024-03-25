@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SEIKO:STORY</title>
+  <link rel="stylesheet" href="css/story.css">
+  <script src="jquery-3.7.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+  <script src="js/story.js"></script>
+</head>
+<body>
+  <div id="header">
+    <ul class="gnb">
+      <li>
+        <img src="img/menu-100.png" id="menu" alt="메뉴" 
+        data-animated="img/menu-100hover.gif" 
+        data-static="img/menu-100.png" 
+        class="mnHover">
+      </li>
+      <li><a href="index.html"><img src="img/SeikoLogo-white.svg" id="logo"></a></li>
+      <li><a href="#"><img src="img/person.svg" id="person"></a></li>
+      <li><img src="img/search.svg"id="search"></li>
+    </ul>
+  </div>
+  <div id="black_bg">
+    <div class="hamberger">
+      <div class="white_bg">
+        <h1><a href="index.html"><img src="img/seikologo-black.svg"></a></h1>
+        <ul id="nav">
+          <li>
+            <a>Watches</a>
+            <ul id="sub">
+              <li><a href="#">SEIKO PREMIER</a></li>
+              <li><a href="#">KING SEIKO</a></li>
+              <li id="slidebtn1">PRESAGE</li>
+              <li><a href="#">ASTRON</a></li>
+              <li id="slidebtn2">PROSPEX</li>
+              <li id="slidebtn3">5 SPORT</li>
+            </ul>
+          </li>
+          <li><a href="story.html">Story</a></li>
+          <li><a href="service.html">Service</a></li>
+          <li><a href="store.html">Store</a></li>
+        </ul>
+        <ul id="nnaavv">
+          <li><a href="#">Watches</a></li>
+          <li><a href="story.html">Story</a></li>
+          <li><a href="service.html">Service</a></li>
+          <li><a href="store.html">Store</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="uls">
+      <ul id="presage" class="slide-container">
+        <li><a href="#">Cocktail&nbsp;Time</a></li>
+        <li><a href="#">Craftsmanship</a></li>
+        <li><a href="#">Japanese <br>garden</a></li>
+        <li><a href="#">Sharp&nbsp;Edged</a></li>
+        <li><a href="#">60&nbsp;style</a></li>
+      </ul>
+      <ul id="porspex" class="slide-container">
+        <li><a href="#">Sea</a></li>
+        <li><a href="#">Land</a></li>
+      </ul>
+      <ul id="sport" class="slide-container">
+        <li><a href="#">SKX<br>Sport<br>Style</a></li>
+        <li><a href="#">SKX<br>Suit<br>Style</a></li>
+        <li><a href="#">SKX<br>Speciallist<br>Style</a></li>
+        <li><a href="#">SKX<br>Street<br>Style</a></li>
+        <li><a href="#">SKX<br>Sense<br>Style</a></li>
+        <li><a href="#">Field Sense</a></li>
+      </ul>
+    </div>
+    <div id="turnOff">
+    </div>
+  </div>
+  <div id="section">
+    <p>STORY</p>
+    <h2>"Always one step ahead of the rest."</h2>
+    <div class="carousel">
+        <ul class="panel clearFix">
+          <li>
+            <ul class="clearFix">
+              <li>
+                <a href="https://www.youtube.com/watch?reload=9&v=ysECwqYVMNY" target="_blank">
+                  <div></div>
+                  <p>Kintaro Hattori 160주년 기념 영화</p>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.seikowatches.com/kr-ko/special/heritage/" target="_blank">
+                  <div></div>
+                  <p>헤리티지</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <ul>
+              <li>
+                <a href="https://www.seikowatches.com/kr-ko/products/presage/special/timeless_traditions/" target="_blank">
+                  <div></div>
+                  <p>Timeless Traditions</p>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.seikowatches.com/kr-ko/products/prospex/special/keepgoingforward/" target="_blank">
+                  <div></div>
+                  <p>Keep Going Forward</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <ul>
+              <li>
+                <a href="https://www.seikowatches.com/kr-ko/special/tokinowaza/" target="_blank">
+                  <div></div>
+                  <p>시간의 장인</p>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.seikowatches.com/kr-ko/products/presage/presage-movement-info" target="_blank">
+                  <div></div>
+                  <p>무브먼트</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <ul class="btn">
+          <li class="on"></li>
+          <li></li>
+          <li></li>
+        </ul>
+        <p class="prev">&lang;</p>
+        <p class="next">&rang;</p>
+    </div>
+  </div>
+  <script>
+    $(".mnHover").mouseover(function() {
+    $(this).attr("src", $(this).data("animated"))
+    }),
+    $(".mnHover").mouseout(function() {
+    $(this).attr("src", $(this).data("static"))
+    });
+  </script>
+</body>
+</html>
